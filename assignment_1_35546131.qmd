@@ -67,3 +67,26 @@ ggplot(data, aes(x = spend)) +
   labs(x = "Marketing spend", y = "Count") + 
   theme_minimal()
 ```
+
+##Result
+
+```{r}
+#| echo: false
+#| fig-cap: "Marketing spend vs Purchase amount"
+#| label: fig-scatter
+ggplot(data, aes(x = spend)) +
+  geom_point(alpha = 0.5) +
+  geom_smooth(method = "lm") +
+  labs(x = "Marketing spend", y = "Purchase amount") +
+  theme_minimal()
+```
+
+```{r}
+#| echo: false
+#| fig-cap: "Purchase amount by spending group"
+#| label: fig-box
+ggplot(data, aes(x = spend)) +
+  geom_boxplot()
+  labs(x = "Spend group", y = "Purchase amount") +
+  theme_minimal()
+```
