@@ -8,7 +8,7 @@ pdf:
   toc: true
 ---
 
-Loading the libraries\
+##Loading the libraries\
 
 ```{r}
 #| echo: false
@@ -17,11 +17,14 @@ Loading the libraries\
 library(tidyverse)
 library(ggplot2)
 library(knitr)
+library(kableExtra)
+library(quarto)
+library(lubridate)
 ```
 
 ##Introduction##
 
-To increase sales online marketplaces use personalised marketing. Our company ran a campaign where different customers spent different amounts in the last quarter. Understanding whether higher spends lead to higher purchases is critical for future budget decisions. This report investigates the relationship using campaign data from Q3.
+To increase sales online marketplaces use personalized marketing. Our company ran a campaign where different customers spent different amounts in the last quarter. Understanding whether higher spends lead to higher purchases is critical for future budget decisions. This report investigates the relationship using campaign data from Q3.
 
 ##Research Question##
 
@@ -90,3 +93,5 @@ ggplot(data, aes(x = spend)) +
   labs(x = "Spend group", y = "Purchase amount") +
   theme_minimal()
 ```
+
+fig-scatter shows a positive relationship between spend and purchase amount. fig-box confirms that customers in higher spend groups tend to make larger purchases...
