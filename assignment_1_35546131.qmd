@@ -39,8 +39,31 @@ data <- read_csv("data/35546131_VaishnavNayak.csv")
 
 
 #cleaning the dataset
-data <- data |
+data <- data |>
   drop_na() |>
   rename(spend = marketing_spend,
          purchase = purchase_amount)
+```
+
+##Dataset Description
+
+```{r}
+#| echo: false
+#| tbl-cap: "Summary statistics by spend group"
+
+data |>
+  group_by(spend) |>
+  summarise(avg_purchase = mean(purchase)) |>
+  kable()
+```
+
+```{r}
+#| echo: false
+#| fig-cap: "Distribution of marketing spend"
+#| label: fig-hist
+
+ggplot(data, aes(x = spend)) +
+  geom_histogram(bins = 30) +
+  labs(x = "Marketing spend", y = "Count") + 
+  theme_minimal()
 ```
