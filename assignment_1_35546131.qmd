@@ -1,0 +1,46 @@
+---
+title: "Assignment 1"
+author: "Vaishnav Nayak"
+format: html
+  theme: cosmo
+  toc: true
+pdf:
+  toc: true
+---
+
+Loading the libraries\
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+library(tidyverse)
+library(ggplot2)
+library(knitr)
+```
+
+##Introduction##
+
+To increase sales online marketplaces use personalised marketing. Our company ran a campaign where different customers spent different amounts in the last quarter. Understanding whether higher spends lead to higher purchases is critical for future budget decisions. This report investigates the relationship using campaign data from Q3.
+
+##Research Question##
+
+This report investigates whether higher marketing spend per customer leads to higher purchase amounts. Here we analyse the relationship between these two variables across all customers in the Q3 campaign dataset.
+
+##Dataset Introduction
+
+The data records marketing spend and purchase amounts for individual customers during the Q3 campaign. The dataset was cleaned by removing rows with missing values and renaming columns for clarity.
+
+```{r}
+#| echo: false
+#| message: false
+#added the dataset
+data <- read_csv("data/35546131_VaishnavNayak.csv") 
+
+
+#cleaning the dataset
+data <- data |
+  drop_na() |>
+  rename(spend = marketing_spend,
+         purchase = purchase_amount)
+```
