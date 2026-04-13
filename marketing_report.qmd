@@ -78,7 +78,7 @@ The table above summarizes the average marketing spend and purchase amount acros
 #histogram
 ggplot(data, aes(x = marketing_spend)) +
   geom_histogram(bins = 30, fill = "steelblue", color = "white") +
-  labs(x = "Marketing spend ($)", y = "Count") + 
+  labs(x = "Marketing Spend ($)", y = "Count") + 
   theme_minimal()
 ```
 
@@ -97,7 +97,7 @@ As shown in the @fig-hist, the marketing spend is spread across a wider range, i
 ggplot(data, aes(x = marketing_spend, y = purchase_amount)) +
   geom_point(alpha = 0.5, color = "red") +
   geom_smooth(method = "lm") +
-  labs(x = "Marketing spend ($)", y = "Purchase amount ($)") +
+  labs(x = "Marketing Spend ($)", y = "Purchase Amount ($)") +
   theme_minimal()
 ```
 
@@ -110,7 +110,7 @@ ggplot(data, aes(x = marketing_spend, y = purchase_amount)) +
 #boxplot
 ggplot(data, aes(x = segment, y = purchase_amount, fill = segment)) +
   geom_boxplot() +
-  labs(x = "Customer Segment", y = "Purchase amount ($)") +
+  labs(x = "Customer Segment", y = "Purchase Amount ($)") +
   theme_minimal()
 ```
 
