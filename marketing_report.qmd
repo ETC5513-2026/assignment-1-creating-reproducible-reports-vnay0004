@@ -78,7 +78,7 @@ The table above summarizes the average marketing spend and purchase amount acros
 #histogram
 ggplot(data, aes(x = marketing_spend)) +
   geom_histogram(bins = 30, fill = "steelblue", color = "white") +
-  labs(x = "Marketing spend", y = "Count") + 
+  labs(x = "Marketing spend ($)", y = "Count") + 
   theme_minimal()
 ```
 
