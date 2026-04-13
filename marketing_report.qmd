@@ -27,11 +27,11 @@ To increase sales online marketplaces use personalized marketing. During the las
 
 ## Research Question
 
-This report investigates whether higher marketing spend per customer leads to higher purchase amounts or not. Here we analyse the relationship between these two variables across all the customers in this dataset.
+This report investigates whether higher marketing spend per customer leads to higher purchase amounts or not. Here we analyse the relationship between these two variables across all the customers in this dataset. Understanding this relationship will help us in future marketing budget decisions.
 
 ## Dataset Introduction
 
-The dataset records marketing spend and purchase amounts for all individual customers during the campaign held in the last quarter. Every row represents a customer and some other details are included such as the signup date, purchase amount, customer sgement,campaign notes and marketing spend, the number of website visits and the purchase amount. The dataset was cleaned by removing rows with missing values. No other changes were necessary since the remaining variables were complete and correctly formatted.
+The dataset records marketing spend and purchase amounts for all individual customers during the campaign held in the last quarter. Every row represents a customer and some other details are included such as the signup date, purchase amount, customer segment,campaign notes, marketing spend and the number of website visits. The dataset was cleaned by removing rows with missing values. No other changes were necessary since the remaining variables were complete and correctly formatted.
 
 ```{r}
 #| echo: false
@@ -46,7 +46,7 @@ data <- data |>
   drop_na(marketing_spend, purchase_amount) 
 ```
 
-## Dataset Description
+### Dataset Description
 
 This dataset contains `r nrow(data)` observations and `r ncol(data)` variables, covering customer behaviour across different sectors.
 
@@ -116,4 +116,4 @@ ggplot(data, aes(x = segment, y = purchase_amount, fill = segment)) +
   theme_minimal()
 ```
 
-The @fig-box confirms that the amounts vary across customer segments, with some responding much better to the campaign than the others. Overall, the results suggest that customers in higher marketing spend leads to make larger purchases by customers, though it may differ across the segment.
+The @fig-box confirms that the amounts vary across customer segments, with some responding much better to the campaign than the others. Overall, the results suggest that higher marketing spend is associated with larger purchases, though the strength of the relationship may differ across the segments.

@@ -52,8 +52,10 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
   <li><a href="#research-question" id="toc-research-question" class="nav-link" data-scroll-target="#research-question">Research Question</a></li>
-  <li><a href="#dataset-introduction" id="toc-dataset-introduction" class="nav-link" data-scroll-target="#dataset-introduction">Dataset Introduction</a></li>
+  <li><a href="#dataset-introduction" id="toc-dataset-introduction" class="nav-link" data-scroll-target="#dataset-introduction">Dataset Introduction</a>
+  <ul class="collapse">
   <li><a href="#dataset-description" id="toc-dataset-description" class="nav-link" data-scroll-target="#dataset-description">Dataset Description</a></li>
+  </ul></li>
   <li><a href="#results" id="toc-results" class="nav-link" data-scroll-target="#results">Results</a></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="marketing_report.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
@@ -91,14 +93,13 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="research-question" class="level2">
 <h2 class="anchored" data-anchor-id="research-question">Research Question</h2>
-<p>This report investigates whether higher marketing spend per customer leads to higher purchase amounts or not. Here we analyse the relationship between these two variables across all the customers in this dataset.</p>
+<p>This report investigates whether higher marketing spend per customer leads to higher purchase amounts or not. Here we analyse the relationship between these two variables across all the customers in this dataset. Understanding this relationship will help us in future marketing budget decisions.</p>
 </section>
 <section id="dataset-introduction" class="level2">
 <h2 class="anchored" data-anchor-id="dataset-introduction">Dataset Introduction</h2>
-<p>The dataset records marketing spend and purchase amounts for all individual customers during the campaign held in the last quarter. Every row represents a customer and some other details are included such as the signup date, purchase amount, customer sgement,campaign notes and marketing spend, the number of website visits and the purchase amount. The dataset was cleaned by removing rows with missing values. No other changes were necessary since the remaining variables were complete and correctly formatted.</p>
-</section>
-<section id="dataset-description" class="level2">
-<h2 class="anchored" data-anchor-id="dataset-description">Dataset Description</h2>
+<p>The dataset records marketing spend and purchase amounts for all individual customers during the campaign held in the last quarter. Every row represents a customer and some other details are included such as the signup date, purchase amount, customer segment,campaign notes, marketing spend and the number of website visits. The dataset was cleaned by removing rows with missing values. No other changes were necessary since the remaining variables were complete and correctly formatted.</p>
+<section id="dataset-description" class="level3">
+<h3 class="anchored" data-anchor-id="dataset-description">Dataset Description</h3>
 <p>This dataset contains 132 observations and 7 variables, covering customer behaviour across different sectors.</p>
 <div class="cell" data-tbl-cap="Summary statistics (Average) by spend group and purchase power">
 <div class="cell-output-display">
@@ -158,6 +159,7 @@ Figure&nbsp;1: Distribution of marketing spend across all customer segments
 </div>
 <p>As shown in the <a href="#fig-hist" class="quarto-xref">Figure&nbsp;1</a>, the marketing spend is spread across a wider range, indicating that the campaign deliberately varied investment levels across the customers.</p>
 </section>
+</section>
 <section id="results" class="level2">
 <h2 class="anchored" data-anchor-id="results">Results</h2>
 <div class="cell">
@@ -189,7 +191,7 @@ Figure&nbsp;3: Purchase amount by customer segment
 </div>
 </div>
 </div>
-<p>The <a href="#fig-box" class="quarto-xref">Figure&nbsp;3</a> confirms that the amounts vary across customer segments, with some responding much better to the campaign than the others. Overall, the results suggest that customers in higher marketing spend leads to make larger purchases by customers, though it may differ across the segment.</p>
+<p>The <a href="#fig-box" class="quarto-xref">Figure&nbsp;3</a> confirms that the amounts vary across customer segments, with some responding much better to the campaign than the others. Overall, the results suggest that higher marketing spend is associated with larger purchases, though the strength of the relationship may differ across the segments.</p>
 </section>
 
 </main>
