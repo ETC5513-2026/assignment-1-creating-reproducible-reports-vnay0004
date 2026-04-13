@@ -23,15 +23,15 @@ library(lubridate)
 
 ## Introduction
 
-To increase sales online marketplaces use personalized marketing. During the last quarter, our company ran a campaign where different customers spent different amounts. Determining whether higher spends lead to higher purchases is critical for future budget decisions. This report investigates the relationship between marketing spend and purchase amount from the campaign.
+To increase sales, online marketplaces use personalised marketing. During the last quarter, our company ran a campaign where different customers spent different amounts. Determining whether higher spends lead to higher purchases is critical for future budget decisions. This report investigates the relationship between marketing spend and purchase amount from the campaign.
 
 ## Research Question
 
-This report investigates whether higher marketing spend per customer leads to higher purchase amounts or not. Here we analyse the relationship between these two variables across all the customers in this dataset. Understanding this relationship will help us in future marketing budget decisions.
+This report investigates whether higher marketing spend per customer leads to higher purchase amounts. We analyse the relationship between these two variables across all the customers in this dataset. Understanding this relationship will help us in future marketing budget decisions.
 
 ## Dataset Introduction
 
-The dataset records marketing spend and purchase amounts for all individual customers during the campaign held in the last quarter. Every row represents a customer and some other details are included such as the signup date, purchase amount, customer segment,campaign notes, marketing spend and the number of website visits. The dataset was cleaned by removing rows with missing values. No other changes were necessary since the remaining variables were complete and correctly formatted.
+The dataset records marketing spend and purchase amounts for all individual customers during the campaign held in the last quarter. Every row represents one customer and includes details such as the signup date, purchase amount, customer segment, campaign notes, marketing spend and the number of website visits. The dataset was cleaned by removing rows with missing values. No other changes were necessary since the remaining variables were complete and correctly formatted.
 
 ```{r}
 #| echo: false
@@ -68,7 +68,7 @@ data |>
         digits = 2)
 ```
 
-The table above summarizes the average marketing spend and purchase amount across each customer segment, giving us information on how spending was distributed throughout the campaign.
+The table above summarises the average marketing spend and purchase amount across each customer segment, giving us information on how spending was distributed throughout the campaign.
 
 ```{r}
 #| echo: false
@@ -101,7 +101,7 @@ ggplot(data, aes(x = marketing_spend, y = purchase_amount)) +
   theme_minimal()
 ```
 
-The @fig-scatter shows a positive relationship between marketing spend and purchase amount for all customers. The trend line (blue) suggests a positive associations, showcasing that the higher purchases were made by the customers on whom higher marketing spend was done.
+The @fig-scatter shows a positive relationship between marketing spend and purchase amount for all customers. The trend line (blue) suggests a positive association, indicating that customers with higher marketing spend tended to make larger purchases.
 
 ```{r}
 #| echo: false
