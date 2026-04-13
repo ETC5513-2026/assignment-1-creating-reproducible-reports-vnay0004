@@ -9,3 +9,7 @@ I used ChatGPT for assistance in R code debugging when getting errors and report
 All written analysis is done by me after referring the results which were shown after R code chunk execution.
 
 ## Screen shots of the chats:
+![Interaction 1](images/AI_SS1.png)
+![Interaction 2](images/AI_SS2.png)
+![Interaction 3](images/AI_SS3.png)
+![Interaction 4](images/AI_SS4.png)
