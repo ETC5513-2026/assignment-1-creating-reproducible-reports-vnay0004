@@ -101,6 +101,8 @@ ggplot(data, aes(x = marketing_spend, y = purchase_amount)) +
   theme_minimal()
 ```
 
+The @fig-scatter shows a positive relationship between marketing spend and purchase amount for all customers. The trend line (blue) suggests a positive associations, showcasing that the higher purchases were made by the customers on whom higher marketing spend was done.
+
 ```{r}
 #| echo: false
 #| results: hide
@@ -114,4 +116,4 @@ ggplot(data, aes(x = segment, y = purchase_amount, fill = segment)) +
   theme_minimal()
 ```
 
-The @fig-scatter shows a positive relationship between marketing spend and purchase amount for all customers. The trend line (blue) suggests a positive associations, showcasing that the higher purchases were made by the customers on whom higher marketing spend was done. The @fig-box confirms that the amounts vary across customer segments, with some responding much better to the campaign than the others. Overall, the results suggest that customers in higher marketing spend leads to make larger purchases by customers, though it may differ across the segment.
+The @fig-box confirms that the amounts vary across customer segments, with some responding much better to the campaign than the others. Overall, the results suggest that customers in higher marketing spend leads to make larger purchases by customers, though it may differ across the segment.
