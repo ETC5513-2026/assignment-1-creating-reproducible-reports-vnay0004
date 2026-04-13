@@ -1,14 +1,13 @@
 ---
-title: "Assignment 1"
+title: "Assignment 1 (Marketing Report)"
 author: "Vaishnav Nayak"
-format: html
-  theme: cosmo
-  toc: true
-pdf:
-  toc: true
+format: 
+  html:
+    theme: cosmo
+    toc: true
+  pdf: 
+    toc: true
 ---
-
-##Loading the libraries\
 
 ```{r}
 #| echo: false
@@ -22,17 +21,17 @@ library(quarto)
 library(lubridate)
 ```
 
-##Introduction##
+## Introduction
 
-To increase sales online marketplaces use personalized marketing. Our company ran a campaign where different customers spent different amounts in the last quarter. Understanding whether higher spends lead to higher purchases is critical for future budget decisions. This report investigates the relationship using campaign data from Q3.
+To increase sales online marketplaces use personalized marketing. During the last quarter, our company ran a campaign where different customers spent different amounts. Determining whether higher spends lead to higher purchases is critical for future budget decisions. This report investigates the relationship between marketing spend and purchase amount from the campaign.
 
-##Research Question##
+## Research Question
 
-This report investigates whether higher marketing spend per customer leads to higher purchase amounts. Here we analyse the relationship between these two variables across all customers in the Q3 campaign dataset.
+This report investigates whether higher marketing spend per customer leads to higher purchase amounts or not. Here we analyse the relationship between these two variables across all the customers in this dataset.
 
-##Dataset Introduction
+## Dataset Introduction
 
-The data records marketing spend and purchase amounts for individual customers during the Q3 campaign. The dataset was cleaned by removing rows with missing values and renaming columns for clarity.
+The dataset records marketing spend and purchase amounts for all individual customers during the campaign held in the last quarter. Every row represents a customer and some other details are included such as the signup date, purchase amount, customer sgement,campaign notes and marketing spend, the number of website visits and the purchase amount. The dataset was cleaned by removing rows with missing values. No other changes were necessary since the remaining variables were complete and correctly formatted.
 
 ```{r}
 #| echo: false
@@ -43,55 +42,76 @@ data <- read_csv("data/35546131_VaishnavNayak.csv")
 
 #cleaning the dataset
 data <- data |>
-  drop_na() |>
-  rename(spend = marketing_spend,
-         purchase = purchase_amount)
+  filter(notes != "N/A" | !is.na(purchase_amount)) |>
+  drop_na(marketing_spend, purchase_amount) 
 ```
 
-##Dataset Description
+## Dataset Description
+
+This dataset contains `r nrow(data)` observations and `r ncol(data)` variables, covering customer behaviour across different sectors.
 
 ```{r}
 #| echo: false
-#| tbl-cap: "Summary statistics by spend group"
+#| tbl-cap: "Summary statistics (Average) by spend group and purchase power"
 
 data |>
-  group_by(spend) |>
-  summarise(avg_purchase = mean(purchase)) |>
-  kable()
+  group_by(segment) |>
+  summarise(
+    avg_spend = mean(marketing_spend),
+    avg_purchase = mean(purchase_amount),
+    n = n()
+   ) |>
+  kable(col.names = c("Segment", 
+                      "Average Marketing Spend $", 
+                      "Average Purchase Amount $", 
+                      "Number of Customers"),
+        digits = 2)
 ```
+
+The table above summarizes the average marketing spend and purchase amount across each customer segment, giving us information on how spending was distributed throughout the campaign.
 
 ```{r}
 #| echo: false
-#| fig-cap: "Distribution of marketing spend"
+#| fig-cap: "Distribution of marketing spend across all customer segments"
 #| label: fig-hist
 
-ggplot(data, aes(x = spend)) +
-  geom_histogram(bins = 30) +
+#histogram
+ggplot(data, aes(x = marketing_spend)) +
+  geom_histogram(bins = 30, fill = "steelblue", color = "white") +
   labs(x = "Marketing spend", y = "Count") + 
   theme_minimal()
 ```
 
-##Result
+As shown in the @fig-hist, the marketing spend is spread across a wider range, indicating that the campaign deliberately varied investment levels across the customers.
+
+## Results
 
 ```{r}
 #| echo: false
+#| results: hide
 #| fig-cap: "Marketing spend vs Purchase amount"
 #| label: fig-scatter
-ggplot(data, aes(x = spend)) +
-  geom_point(alpha = 0.5) +
+#| warning: false
+
+#scatterplot
+ggplot(data, aes(x = marketing_spend, y = purchase_amount)) +
+  geom_point(alpha = 0.5, color = "red") +
   geom_smooth(method = "lm") +
-  labs(x = "Marketing spend", y = "Purchase amount") +
+  labs(x = "Marketing spend ($)", y = "Purchase amount ($)") +
   theme_minimal()
 ```
 
 ```{r}
 #| echo: false
-#| fig-cap: "Purchase amount by spending group"
+#| results: hide
+#| fig-cap: "Purchase amount by customer segment"
 #| label: fig-box
-ggplot(data, aes(x = spend)) +
-  geom_boxplot()
-  labs(x = "Spend group", y = "Purchase amount") +
+
+#boxplot
+ggplot(data, aes(x = segment, y = purchase_amount, fill = segment)) +
+  geom_boxplot() +
+  labs(x = "Customer Segment", y = "Purchase amount ($)") +
   theme_minimal()
 ```
 
-fig-scatter shows a positive relationship between spend and purchase amount. fig-box confirms that customers in higher spend groups tend to make larger purchases...
+The @fig-scatter shows a positive relationship between marketing spend and purchase amount for all customers. The trend line (blue) suggests a positive associations, showcasing that the higher purchases were made by the customers on whom higher marketing spend was done. The @fig-box confirms that the amounts vary across customer segments, with some responding much better to the campaign than the others. Overall, the results suggest that customers in higher marketing spend leads to make larger purchases by customers, though it may differ across the segment.
